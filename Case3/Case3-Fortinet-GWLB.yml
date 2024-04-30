@@ -33,27 +33,27 @@ Parameters:
 
   VPCCIDRBlock:
     Type: String
-    Default: 10.254.0.0/16
+    Default: 10.17.0.0/16
     Description: "The CIDR range for the VPC. This should be a valid private (RFC 1918) CIDR range."
 
   PublicSubnetABlock:
     Type: String
-    Default: 10.254.11.0/24
+    Default: 10.17.11.0/24
     Description: "CidrBlock for AZ A public subnet A within the VPC"   
 
   PublicSubnetBBlock:
     Type: String
-    Default: 10.254.12.0/24
+    Default: 10.17.12.0/24
     Description: "CidrBlock for AZ B public subnet B within the VPC"
 
   PrivateSubnetABlock:
     Type: String
-    Default: 10.254.21.0/24
+    Default: 10.17.21.0/24
     Description: "CidrBlock for AZ A public subnet A within the VPC"   
 
   PrivateSubnetBBlock:
     Type: String
-    Default: 10.254.22.0/24
+    Default: 10.17.22.0/24
     Description: "CidrBlock for AZ B public subnet B within the VPC"
 
   DefaultRouteBlock:
@@ -462,7 +462,7 @@ Resources:
     DependsOn: PrivateSubnetA
     Properties:
       SubnetId: !Ref PrivateSubnetA
-      PrivateIpAddress: 10.254.21.101
+      PrivateIpAddress: 10.17.21.101
       SecurityGroupIds: 
         - Ref: ApplianceEC2SG
       ImageId: !Ref LatestAmiId
@@ -478,7 +478,7 @@ Resources:
             DeleteOnTermination: true
       Tags:
         - Key: Name
-          Value: !Sub '${AWS::StackName}-Appliance-10.254.21.101'
+          Value: !Sub '${AWS::StackName}-Appliance-10.17.21.101'
       UserData:
         Fn::Base64:
           Fn::Sub: |
@@ -545,7 +545,7 @@ Resources:
     DependsOn: PrivateSubnetA
     Properties:
       SubnetId: !Ref PrivateSubnetA
-      PrivateIpAddress: 10.254.21.102
+      PrivateIpAddress: 10.17.21.102
       SecurityGroupIds: 
         - Ref: ApplianceEC2SG
       ImageId: !Ref LatestAmiId
@@ -561,7 +561,7 @@ Resources:
             DeleteOnTermination: true
       Tags:
         - Key: Name
-          Value: !Sub '${AWS::StackName}-Appliance-10.254.21.102'
+          Value: !Sub '${AWS::StackName}-Appliance-10.17.21.102'
       UserData:
         Fn::Base64:
           Fn::Sub: |
@@ -628,7 +628,7 @@ Resources:
     DependsOn: PrivateSubnetB
     Properties:
       SubnetId: !Ref PrivateSubnetB
-      PrivateIpAddress: 10.254.22.101
+      PrivateIpAddress: 10.17.22.101
       SecurityGroupIds: 
         - Ref: ApplianceEC2SG
       ImageId: !Ref LatestAmiId
@@ -644,7 +644,7 @@ Resources:
             DeleteOnTermination: true
       Tags:
         - Key: Name
-          Value: !Sub '${AWS::StackName}-Appliance-10.254.22.101'
+          Value: !Sub '${AWS::StackName}-Appliance-10.17.22.101'
       UserData:
         Fn::Base64:
           Fn::Sub: |
@@ -711,7 +711,7 @@ Resources:
     DependsOn: PrivateSubnetB
     Properties:
       SubnetId: !Ref PrivateSubnetB
-      PrivateIpAddress: 10.254.22.102
+      PrivateIpAddress: 10.17.22.102
       SecurityGroupIds: 
         - Ref: ApplianceEC2SG
       ImageId: !Ref LatestAmiId      
@@ -727,7 +727,7 @@ Resources:
             DeleteOnTermination: true
       Tags:
         - Key: Name
-          Value: !Sub '${AWS::StackName}-Appliance-10.254.22.102'
+          Value: !Sub '${AWS::StackName}-Appliance-10.17.22.102'
       UserData:
         Fn::Base64:
           Fn::Sub: |
